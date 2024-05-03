@@ -14,6 +14,7 @@
     "lint": "next lint",
     "preview": "next build && next start",
     "postinstall": "prisma generate",
+    "prismainstall": "prisma generate && prisma db push",
     "email": "email dev --dir emails --port 3333"
   },
   "dependencies": {
