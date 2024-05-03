@@ -1,8 +1,8 @@
-import { NavBar } from "@/components/layout/navbar"
-import { SiteFooter } from "@/components/layout/site-footer"
-import { marketingConfig } from "@/config/marketing"
-import { getCurrentUser } from "@/lib/session"
-import { Suspense } from "react"
+import { NavBar } from "@/components/layout/navbar";
+import { SiteFooter } from "@/components/layout/site-footer";
+import { marketingConfig } from "@/config/marketing";
+import { getCurrentUser } from "@/lib/session";
+import { Suspense } from "react";
 
 interface MarketingLayoutProps {
   children: React.ReactNode
@@ -11,7 +11,7 @@ interface MarketingLayoutProps {
 export default async function MarketingLayout({
   children,
 }: MarketingLayoutProps) {
-  const user = await getCurrentUser()
+  const user = await getCurrentUser();
 
   return (
     <div className="flex min-h-screen flex-col">

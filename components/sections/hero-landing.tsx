@@ -32,14 +32,16 @@ export async function HeroLanding() {
           className={cn(
             buttonVariants({ variant: "outline", size: "sm", rounded: "full" }),
             "px-4",
+            "animate-fade-down opacity-0"
           )}
+          style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
           target="_blank"
         >
           <span className="mr-3">🎉</span> Introducing on{" "}
           <Icons.twitter className="ml-2 size-3.5" />
         </Link>
 
-        <h1 className="text-balance font-urban text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-[66px]">
+        <h1 className="animate-fade-up text-balance font-urban text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-[66px]">
           Kick off with a bang with{" "}
           <span className="text-gradient_indigo-purple font-extrabold">
             SaaS Starter

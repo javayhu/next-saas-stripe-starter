@@ -1,17 +1,17 @@
-import { notFound } from "next/navigation"
-import { allAuthors, allPosts } from "contentlayer/generated"
+import { notFound } from "next/navigation";
+import { allAuthors, allPosts } from "contentlayer/generated";
 
-import { Mdx } from "@/components/content/mdx-components"
+import { Mdx } from "@/components/content/mdx-components";
 
-import "@/styles/mdx.css"
-import { Metadata } from "next"
-import Image from "next/image"
-import Link from "next/link"
+import "@/styles/mdx.css";
+import { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
-import { env } from "@/env.mjs"
-import { absoluteUrl, cn, formatDate } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
-import { Icons } from "@/components/shared/icons"
+import { env } from "@/env.mjs";
+import { absoluteUrl, cn, formatDate } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
+import { Icons } from "@/components/shared/icons";
 
 interface PostPageProps {
   params: {
@@ -24,10 +24,10 @@ async function getPostFromParams(params) {
   const post = allPosts.find((post) => post.slugAsParams === slug)
 
   if (!post) {
-    null
+    null;
   }
 
-  return post
+  return post;
 }
 
 export async function generateMetadata({
@@ -36,15 +36,15 @@ export async function generateMetadata({
   const post = await getPostFromParams(params)
 
   if (!post) {
-    return {}
+    return {};
   }
 
-  const url = env.NEXT_PUBLIC_APP_URL
-
-  const ogUrl = new URL(`${url}/api/og`)
-  ogUrl.searchParams.set("heading", post.title)
-  ogUrl.searchParams.set("type", "Blog Post")
-  ogUrl.searchParams.set("mode", "dark")
+  const url = env.NEXT_PUBLIC_APP_URL;
+  console.log('post url', url);
+  const ogUrl = new URL(`${url}/api/og`);
+  ogUrl.searchParams.set("heading", post.title);
+  ogUrl.searchParams.set("type", "Blog Post");
+  ogUrl.searchParams.set("mode", "dark");
 
   return {
     title: post.title,
@@ -87,7 +87,7 @@ export default async function PostPage({ params }: PostPageProps) {
   const post = await getPostFromParams(params)
 
   if (!post) {
-    notFound()
+    notFound();
   }
 
   const authors = post.authors.map((author) =>

@@ -46,7 +46,7 @@ export const SignInModal = () => {
             ) : (
               <Icons.google className="mr-2 size-4" />
             )}{" "}
-            Sign In with Google
+            Sign In with Github
           </Button>
         </div>
       </div>

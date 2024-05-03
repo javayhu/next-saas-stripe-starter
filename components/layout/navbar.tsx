@@ -1,17 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import { MainNavItem } from "@/types";
 import { User } from "next-auth";
-
-import { cn } from "@/lib/utils";
 import useScroll from "@/hooks/use-scroll";
 import { useSigninModal } from "@/hooks/use-signin-modal";
 import { Button, buttonVariants } from "@/components/ui/button";
 
-import { Icons } from "../shared/icons";
-import { MainNav } from "./main-nav";
-import { UserAccountNav } from "./user-account-nav";
+import { Icons } from "@/components/shared/icons";
+import { MainNav } from "@/components/layout/main-nav";
+import { UserAccountNav } from "@/components/layout/user-account-nav";
+import { ModeToggle } from "@/components/layout/mode-toggle";
 
 interface NavBarProps {
   user: Pick<User, "name" | "image" | "email"> | undefined;
@@ -42,6 +40,7 @@ export function NavBar({
 
         <div className="flex items-center space-x-3">
           {rightElements}
+          <ModeToggle />
 
           {/* {!user ? (
             <Link

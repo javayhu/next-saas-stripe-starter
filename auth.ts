@@ -1,8 +1,8 @@
-import NextAuth from "next-auth"
-import { PrismaAdapter } from "@auth/prisma-adapter"
-import { prisma } from "@/lib/db"
-import authConfig from "@/auth.config"
-import { getUserById } from "@/lib/user"
+import NextAuth from "next-auth";
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import { prisma } from "@/lib/db";
+import authConfig from "@/auth.config";
+import { getUserById } from "@/lib/user";
 
 export const { 
   handlers: { GET, POST },
@@ -29,7 +29,7 @@ export const {
         session.user.image = token.picture;
       }
 
-      return session
+      return session;
     },
 
     async jwt({ token }) {
